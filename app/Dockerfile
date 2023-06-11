@@ -8,6 +8,6 @@ ADD . /app/
 
 RUN pip install -r requirements.txt
 
-CMD ["python", "wsgi.py"]
+CMD gunicorn --bind 0.0.0.0:5000 --threads 100 wsgi:app
 
 EXPOSE 5000
