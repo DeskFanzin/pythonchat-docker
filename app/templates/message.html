@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"
+        integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA=="
+        crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <title>Sala de Chat</title>
+</head>
+<body>
+    <div class="settings">
+        <label for="background-color">Cor de Fundo:</label>
+        <select id="background-color">
+            <option value="palevioletred">Pale Violet Red</option>
+            <option value="lightblue">Light Blue</option>
+            <option value="lightgreen">Light Green</option>
+            <!-- Adicione outras opções de cores aqui -->
+        </select>
+    </div>    
+
+    <div class="message-input-container">
+        <input placeholder="Escreva a Mensagem!" id="messageInput" />
+        <button id="sendButton">Enviar</button> <!-- Adicionando o botão de envio -->
+    </div>
+
+    <div class="messages">
+        <script>
+            const socket = io();
+
+            let messageContainer = document.querySelector(".messages");
+            let messageInput = document.getElementById("messageInput");
+
+            let sendButton = document.getElementById("sendButton");
+            sendButton.addEventListener("click", () => {
+                const message = messageInput.value;
+                if (message.trim() !== "") {
+                    socket.emit("message", message);
+                    messageInput.value = "";
+                }
+            });
+
+            const backgroundColorSelect = document.getElementById("background-color");
+            backgroundColorSelect.addEventListener("change", () => {
+                const selectedColor = backgroundColorSelect.value;
+                document.body.style.backgroundColor = selectedColor;
+            });
+
+            socket.on('message', (message) => {
+                let messageElement = document.createElement("p");
+                messageElement.innerText = message;
+                messageContainer.appendChild(messageElement);
+
+                // Role automaticamente para exibir a última mensagem
+                messageContainer.scrollTop = messageContainer.scrollHeight;
+            });
+            
+        </script>
+    </div>
+
+</body>
+</html>

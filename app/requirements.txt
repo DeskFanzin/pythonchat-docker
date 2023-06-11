@@ -1,0 +1,4 @@
+Flask==2.2.5
+Flask-socketIO
+simple-websocket
+gunicorn==19.9.0

@@ -1,0 +1,37 @@
+body {
+    background-color: palevioletred;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    line-height: 1.6em;
+    margin: 0;
+}
+
+.settings {
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+.message-input-container {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center;
+    max-width: 300px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #c9c5c5;
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+
+.messages {
+    background-color: burlywood;
+    border: 1px solid #ccc;
+    margin: 20px auto;
+    max-width: 500px;
+    height: 300px; /* Defina a altura pré-definida desejada */
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.3);
+    overflow-y: auto; /* Adiciona uma barra de rolagem vertical quando necessário */
+}
+
