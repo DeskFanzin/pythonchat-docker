@@ -8,7 +8,7 @@ COMO FUNCIONA?
     Ao entrar no chat, o usuário pode enviar mensagens para todos os outros usuários que estão logados.
 
 COMO RODAR?
-    Para rodar o chat, é necessário ter o docker e docker-compose instalado. (preferencialmente em um SO ubuntu, pois não tenho certeza se funcionaria em windows)
+    Para rodar o chat, é necessário ter o docker, docker-compose, nginx e gunicorn instalado. (preferencialmente em um SO ubuntu, pois não tenho certeza se funcionaria em windows)
     Após isso, basta rodar o comando:
         docker-compose up --build --scale app=2
     O chat estará rodando na porta 80 do localhost e do ip da máquina na rede local.
