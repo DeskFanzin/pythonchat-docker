@@ -19,6 +19,31 @@
             <option value="palevioletred">Pale Violet Red</option>
             <option value="lightblue">Light Blue</option>
             <option value="lightgreen">Light Green</option>
+            <option value="white">White</option>
+            <option value="grey">Grey</option>
+            <option value="black">Black</option>
+            <option value="yellow">Yellow</option>
+            <option value="orange">Orange</option>
+            <option value="purple">Purple</option>
+            <!-- Adicione outras opções de cores aqui -->
+        </select>
+        <label for="font-family">Fonte:</label>
+        <select id="font-family">
+            <option value="Arial">Arial</option>
+            <option value="Verdana">Verdana</option>
+            <option value="Helvetica">Helvetica</option>
+            <option value="Times New Roman">Times New Roman</option>
+            <option value="Courier New">Courier New</option>
+            <option value="fantasy">Papyrus</option>
+            <!-- Adicione outras opções de fontes aqui -->
+        </select>
+        <label for="font-color">Cor da Fonte:</label>
+        <select id="font-color">
+            <option value="black">Black</option>
+            <option value="white">White</option>
+            <option value="grey">Grey</option>
+            <option value="red">Red</option>
+            <option value="blue">Blue</option>
             <!-- Adicione outras opções de cores aqui -->
         </select>
     </div>    
@@ -50,6 +75,18 @@
                 document.body.style.backgroundColor = selectedColor;
             });
 
+            const fontFamilySelect = document.getElementById("font-family");
+            fontFamilySelect.addEventListener("change", () => {
+                const selectedFont = fontFamilySelect.value;
+                document.body.style.fontFamily = selectedFont;
+            });
+
+            const fontColorSelect = document.getElementById("font-color");
+            fontColorSelect.addEventListener("change", () => {
+                const selectedColor = fontColorSelect.value;
+                document.body.style.color = selectedColor;
+            });
+            
             socket.on('message', (message) => {
                 let messageElement = document.createElement("p");
                 messageElement.innerText = message;
