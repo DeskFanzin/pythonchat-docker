@@ -20,6 +20,6 @@ COMO FUNCIONA, DE MANEIRA TECNICA?
     O aplicativo é feito em Flask, que é um framework de python para web.
     Este é rodado em gunicorn, que é um servidor http para python.
     Um servidor é rodado em nginx, que é um servidor http que fará o proxy reverso com o servidor WSGI, aberto pelo gunicorn.
-    O servidor é rodado em docker, que é um container, de certo modo uma virtual machine, para rodar aplicações.
+    Todo o app (incluindo os servidores) é rodado em docker, que é um container, de certo modo uma virtual machine, para rodar aplicações.
     E este é rodado em docker-compose, que é uma ferramenta para rodar vários containers ao mesmo tempo.
     O servidor é rodado em 2 containers, para que seja possível a replicação, ou seja, se um dos servidores cair, o outro continua funcionando.
