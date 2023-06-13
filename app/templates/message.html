@@ -27,6 +27,14 @@
             <option value="purple">Purple</option>
             <!-- Adicione outras opções de cores aqui -->
         </select>
+        <label for="background-image">Imagem de fundo:</label>
+        <select id="background-image">
+            <option value="none">None</option>
+            <option value="beach.jpg">Beach</option>
+            <option value="desert.jpg">Desert</option>
+            <option value="forest.jpg">Forest</option>
+            <option value="snow.jpg">Snow</option>
+        </select>
         <label for="font-family">Fonte:</label>
         <select id="font-family">
             <option value="Arial">Arial</option>
@@ -73,6 +81,12 @@
             backgroundColorSelect.addEventListener("change", () => {
                 const selectedColor = backgroundColorSelect.value;
                 document.body.style.backgroundColor = selectedColor;
+            });
+
+            const backgroundImageSelect = document.getElementById("background-image");
+            backgroundImageSelect.addEventListener("change", () => {
+                const selectedImage = backgroundImageSelect.value;
+                document.body.style.backgroundImage = `url('/static/${selectedImage}')`;
             });
 
             const fontFamilySelect = document.getElementById("font-family");
